@@ -1,0 +1,18 @@
+#!/bin/bash
+
+FULLFILE=$1
+
+#FILENAME=$(basename "$FULLFILE")
+#extension="${filename##*.}"
+FILENAME="${FULLFILE%.*}"
+
+echo $FILENAME
+
+Rscript -e "require(knitr); require(markdown); knit('$FULLFILE', '$FILENAME.md')"
+
+pandoc $FILENAME.md -o $FILENAME.pdf
+
+open $FILENAME.pdf
+
+
+

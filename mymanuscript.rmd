@@ -1,0 +1,46 @@
+# Popular understanding of the Titanic catastrophe
+
+## Introduction
+
+Everyone knows that the Titanic sank, but there is generally little sense of the magnitude 
+of the disaster. Here I compare some guesses of the total number of passengers that died 
+to actual mortality statistics.
+
+
+## Results
+
+The vector representation of guesses at the total number of passengers that died is:
+
+
+```{r}
+guesses <- c(1,1,1)
+
+```
+
+
+I polled a total of `r length(guesses)` people. Their mean guess was `r mean(guesses)`. 
+
+The actual number of deaths can be extracted from the Titanic R sample dataset as follows:
+
+```{r}
+actual <- apply(Titanic, c(4), sum)['No']
+
+```
+Giving a total of `r actual` deaths.
+
+Here is a plot of the guesses versus the actual value:
+
+```{r}
+hist(guesses)
+abline(v=actual,col=3,lty=3)
+
+```
+
+
+## Discussion
+
+
+This subject clearly requires further study. 
+
+
+
